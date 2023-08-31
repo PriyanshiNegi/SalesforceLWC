@@ -1,0 +1,24 @@
+<template>
+        <lightning-card  variant="Narrow"  title="Hello" icon-name="standard:account">
+            <div class="slds-m-around_x-small">
+                <div>Hello Priyanshi , {moto} !</div>
+                <lightning-input type="text" label="Enter Some Encouraging Words" onkeyup={changeHandler}></lightning-input>
+            </div>
+       </lightning-card>
+       <lightning-card  variant="Narrow"  title="Button Click">
+        <div class="slds-m-around_x-small">
+            <button onclick={buttonClicked}>Click Me</button>
+            <template if:true={isVisible}>
+                <div>Hello Priyanshi , {moto} !</div>
+            </template>
+        </div>
+        </lightning-card>
+        <lightning-card  variant="Narrow"  title="Text Check">
+            <div class="slds-m-around_x-small">
+                <lightning-input type="text" label="Enter Some Encouraging Words" onkeyup={changeHandlerTwo}></lightning-input>
+                <template if:true={data}>
+                    <div>Hello Priyanshi , {motoOne} !</div>
+                </template>
+            </div>
+        </lightning-card>
+</template>
