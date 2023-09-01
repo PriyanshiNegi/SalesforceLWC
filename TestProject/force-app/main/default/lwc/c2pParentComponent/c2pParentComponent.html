@@ -2,10 +2,12 @@
         <lightning-card  title="Parent Component">
             <div class="slds-var-m-around_medium">
                 <lightning-button variant="brand" label="Show Modal" title = "Show Modal" onclick={clickHandler}></lightning-button>
+                <!-- displaying message on screen -->
+                <h1>{msg}</h1>
                 <!-- Only show when true -->
                 <template if:true={showModal}>
                      <!-- Embedding child component in parent -->
-                <c-c2p-modal-component onclose={closeTheHandler}></c-c2p-modal-component>
+                <c-c2p-modal-component onclose={closeTheHandler}></c-c2p-modal-component><!--when mentioning the name of event use prefix "on"-->
                 <!-- on clicking child component's element we want the parent to react according the change/event -->
                 </template>
                
