@@ -22,7 +22,7 @@
         // refrencing the message channel through the name which is "SampleMessageChannel__c"
         let SampleChannel = "{!$MessageChannel.SampleMessageChannel__c}"
 
-        subscription
+        let subscription
 
         // publishing the message
         function publishHandler(){
