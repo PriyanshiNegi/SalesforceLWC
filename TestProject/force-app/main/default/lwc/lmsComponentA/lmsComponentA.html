@@ -1,0 +1,12 @@
+<template>
+    <lightning-card   title="LMS Component A">
+        <div class="slds-m-around_medium">
+            <!-- for the message we want to send -->
+            <lightning-input type="text" label="Enter message to publish to Comp B" onkeyup={changeHandler}></lightning-input>
+        </div>
+        <div class="slds-m-around_medium">
+            <!-- we want to publish message on Button click -->
+            <lightning-button label="Publish" onclick={publishMessage}></lightning-button>     
+        </div>
+    </lightning-card>  
+</template>
