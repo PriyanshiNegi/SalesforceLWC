@@ -1,5 +1,10 @@
 <template>
         <lightning-card   title="LMS Component B">
-            <div class="slds-m-around_medium">Message Received - <strong>{receivedMessage}</strong></div>
+            <div class="slds-m-around_medium">
+                Message Received : <strong>{receivedMessage}</strong>
+            </div>
+            <div class="slds-m-around_medium">
+                <lightning-button label="Unsubscribe Message" onclick={unsubscribeMessage}></lightning-button>
+            </div>
         </lightning-card>  
 </template>
