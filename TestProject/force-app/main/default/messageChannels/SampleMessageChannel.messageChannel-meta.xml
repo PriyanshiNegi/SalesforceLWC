@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <!-- Name of the Channel -->
+    <masterLabel>SampleMessageChannel</masterLabel>
+    <!-- want message channel to be exposed so that other components can use this -->
+    <isExposed>true</isExposed>
+    <description>Message Channel to pass data</description>
+    <!-- Message Fields -->
+    <lightningMessageFields>
+        <!-- field names must be usnique these are the fields being used to pass data -->
+        <fieldName>lmsData</fieldName>
+        <description>This is the field to pass data</description>
+
+        <!-- create as many fields as you want to pass
+        <fieldName>recordId</fieldName>
+        <description>This is the field to pass recordId</description> -->
+    </lightningMessageFields>
+</LightningMessageChannel>
