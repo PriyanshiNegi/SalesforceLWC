@@ -17,7 +17,7 @@ export default class LmsComponentB extends LightningElement {
     context
 
     //Life Cycle Hook gets called when the page loads
-    connectedCallBack(){
+    connectedCallback(){
         this.subscribeMessage()
     }
 

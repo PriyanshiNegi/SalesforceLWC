@@ -29,8 +29,8 @@ export default class LmsComponentA extends LightningElement {
         //message to publish
         const message ={
             //field in messageChannel check meta file
-            lmsData : {
-                value : this.inputValue
+            lmsData:{
+                value:this.inputValue
             }
         }
 
