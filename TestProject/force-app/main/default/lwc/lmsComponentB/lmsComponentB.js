@@ -5,7 +5,7 @@ import { LightningElement , wire } from 'lwc';
 //1- referencing a message channel in LWC
 import SampleChannel from "@salesforce/messageChannel/SampleMessageChannel__c";
 //2- importing LMS API according to use case , so here we want compB to receive something from compA
-import { MessageContext, subscribe, unsubscribe} from 'lightning/messageService';
+import { MessageContext,APPLICATION_SCOPE, subscribe, unsubscribe} from 'lightning/messageService';
 
 export default class LmsComponentB extends LightningElement {
 
@@ -23,7 +23,7 @@ export default class LmsComponentB extends LightningElement {
 
     subscribeMessage(){
         //to subscribe a message : subscribe(messageContext, messageChannel, listener, subscriberOptions)
-        this.subscription = subscribe(this.context,SampleChannel,(message)=>{this.handleMessage(message)},{scope : APPLICATION_SCOPE})
+        this.subscription = subscribe(this.context,SampleChannel,(message)=>{this.handleMessage(message)},{scope :APPLICATION_SCOPE})
         //SampleChannel = name of imported channel
         //this.context = denotes the current message context (object of MessageContext , check the property above)
         //listener = fuction to receive messages on message channel from anywhere in the application
