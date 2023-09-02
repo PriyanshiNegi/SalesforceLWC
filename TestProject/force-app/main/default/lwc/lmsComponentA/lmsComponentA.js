@@ -2,7 +2,7 @@
 //importing wire service
 import { LightningElement, wire } from 'lwc';
 
-// Prerequistes for communication between components :
+// Prerequistes for communication between components (here publishing message):
 
 //1- referencing a message channel in LWC
 import SampleChannel from "@salesforce/messageChannel/SampleMessageChannel__c"
