@@ -1,0 +1,33 @@
+<!-- to expose the component use implements -->
+<aura:component implements = "flexipage:availableForAllPageTypes" access="global">
+
+<!-- Properties -->
+<!-- to store inout from inout feild , to send/publish message-->
+<aura:attribute name="messageValue" type="String"/>
+<!-- to receive message -->
+<aura:attribute name="messageReceived" type="String"/>
+
+<!-- to setup message channel for aura component -->
+<!-- type = type of channel -->
+<!-- in Aura method called like {!c.nameOfMethod/Handler} -->
+<!-- to receive message/listen to message "onMessage" -->
+<lightning:messageChannel type="SampleMessageChannel__c" aura:id="SampleMessageChannel" onMessage="{!c.handleMessage}" scope="APPLICATION"/>
+    
+<!-- We also want to publish a message on our end -->
+    <lightning:card title="LMS Aura Componenet">
+        <div class="slds-p-around_medium">
+            <label>Enter Message to Publish</label>
+            <!-- input : to type the message to send -->
+            <input type="text" id="messageInput" name="messageInput" class="slds-input" value="{!v.messageValue}" onkeyup="{!c.inputHandler}"/>
+         </div>
+         <div class="slds-p-around_medium">
+            <!-- button clicked that sends message -->
+            <lightning:button onclick="{!c.publishMessage}">Publish</lightning:button>
+         </div>
+         <div class="slds-p-around_medium">
+            <!-- to print received message -->
+            <h1>Message Received</h1>
+            <lightning:formattedText value="{!v.messageReceived}"/>
+         </div>
+    </lightning:card>
+</aura:component>	
