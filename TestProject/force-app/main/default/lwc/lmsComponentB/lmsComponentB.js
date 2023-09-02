@@ -3,9 +3,9 @@ import { LightningElement , wire } from 'lwc';
 // Prerequistes for communication between components (here subscribing message):
 
 //1- referencing a message channel in LWC
-import SampleChannel from "@salesforce/messageChannel/SampleMessageChannel__c"
+import SampleChannel from "@salesforce/messageChannel/SampleMessageChannel__c";
 //2- importing LMS API according to use case , so here we want compB to receive something from compA
-import { MessageContext, subscribe, unsubscribe} from 'lightning/messageService'
+import { MessageContext, subscribe, unsubscribe} from 'lightning/messageService';
 
 export default class LmsComponentB extends LightningElement {
 
