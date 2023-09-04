@@ -45,7 +45,8 @@ export default class MemoryGameLWC extends LightningElement {
 
     // give player rating according to the moves
     get gameRating(){
-        let stars =  this.moves < 12 ? [1,2,3]: this.moves >= 13 ? [1,2]:[1]
+        // when move are 12 or less assign the array[1,2,3] when in range 13-16 assign [1,2] else give [1] for 1 star
+        let stars =  this.moves <= 12 ? [1,2,3]: this.moves >= 13 && this.moves<=16 ? [1,2]:[1]
         // when the entrie game is completed i.e matched cards become 16 then return star variable else return empty
         return this.matchCard.length === 16 ? stars : []
       }
