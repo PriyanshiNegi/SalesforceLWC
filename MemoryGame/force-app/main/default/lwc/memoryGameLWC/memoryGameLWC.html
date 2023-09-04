@@ -1,0 +1,60 @@
+<template>
+    <div class="container">
+        <lightning-card title="Memory Game">
+            <div class="slds-var-p-around_medium">
+                <!-- Score Area -->
+                <section class="score-panel">
+                    <!-- number of moves -->
+                    <span class="moves">{moves}</span>Move(s)
+                    <!-- timer for game -->
+                    <div class="timer">{totalTime}</div>
+                    <!-- icon available -->
+                    <div class="restart" onclick={shuffle}>
+                        <i class="fa fa-repeat" aria-hidden="true"></i>
+                    </div>
+                </section>
+                <!-- Game Area -->
+                <!-- we gonna use 8 cards and repeat them we have a total of 16 with 8 combos -->
+                <section class="game-panel">
+                    <ul class="deck card-deck grid-container">
+                        <!-- looping over the cards array -->
+                        <template for:each={cards} for:item="card">
+                            <!-- class must match card class and type should match type -->
+                            <li class={card.listClass} type={card.type} key={card.id} onclick={displayCard}>
+                                <i class={card.icon}></i>
+                            </li>
+                        </template>
+                    </ul>
+                </section>
+                <!-- Modal for Congratulations Pop-Up -->
+                <template if:true={showCongratulations}>
+                    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                                </svg>
+                                <span class="slds-assistive-text">Cancel and close</span>
+                            </button>
+                            <div class="slds-modal__header">
+                                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">CONGRATULATIONS !!</h1>
+                            </div>
+                            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                                <p>Congratulations on completing the game. You made {moves} Move(s) in {totalTime}. Would you like to re-play and beat your score?</p>
+                                <p>Your current rating is: 
+                                    <template for:each={gameRating} for:item="rating">
+                                        <i class="fa fa-star" key={rating}></i>
+                                    </template>
+                                </p>
+                            </div>
+                            <div class="slds-modal__footer">
+                                <button class="slds-button slds-button_brand" onclick={shuffle}>Yes,Restart</button>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>
