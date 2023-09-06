@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Edit Record using lightning-record-edit-form">
+        <!-- Using Account Object and Record Id of an Account that is already present in Salesforce -->
+        <lightning-record-edit-form object-api-name={objectName}>
+            <div class="slds-grid slds-gutters">
+                <!-- creating 2 columns 6/12 and 6/12 basically CUSTOM LAYOUT-->
+                <div class="slds-col slds-size_6-of-12">
+                    <!-- displaying fields in Edit mode -->
+                    <lightning-input-field field-name={fields.accountField}></lightning-input-field>
+                    <lightning-input-field field-name={fields.nameField}></lightning-input-field>
+                    <lightning-input-field field-name={fields.titleField}></lightning-input-field>
+                    <lightning-input-field field-name={fields.phoneField}></lightning-input-field>
+                </div>
+                <div class="slds-col slds-size_6-of-12">
+                    <lightning-input-field field-name={fields.emailField}></lightning-input-field>
+                </div>
+            </div>
+            <lightning-button class="slds-m-around_xx-small" label="Cancel" onclick={handleReset}></lightning-button>
+            <lightning-button variant="brand" type="submit" class="slds-m-around_xx-small" label="Save"></lightning-button>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>
