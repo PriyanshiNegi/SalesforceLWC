@@ -10,7 +10,10 @@
                     <lightning-input-field field-name={fields.accountField}></lightning-input-field>
                     <lightning-input-field field-name={fields.nameField}></lightning-input-field>
                     <lightning-input-field field-name={fields.titleField}></lightning-input-field>
-                    <lightning-input-field field-name={fields.phoneField}></lightning-input-field>
+
+                    <!-- adding a custom label to field > first add variant="label-hidden" then add the label -->
+                    <label>Enter your Email</label>
+                    <lightning-input-field variant="label-hidden" field-name={fields.phoneField}></lightning-input-field>
                 </div>
                 <div class="slds-col slds-size_6-of-12">
                     <lightning-input-field field-name={fields.emailField}></lightning-input-field>
