@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="View Record using lightning-record-view-form">
+        <!-- Using Account Object and Record Id of an Account that is already present in Salesforce -->
+        <lightning-record-view-form object-api-name="Account" record-id="0011m00000lwUUSAA2">
+            <div class="slds-grid slds-gutters">
+                <!-- creating 2 columns 6/12 and 6/12 basically CUSTOM LAYOUT-->
+                <div class="slds-col slds-size_6-of-12">
+                    <!-- displaying fields in Read-Only mode -->
+                    <lightning-output-field field-name="Name"></lightning-output-field>
+                    <lightning-output-field field-name="Phone"></lightning-output-field>
+                    <lightning-output-field field-name="Industry"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_6-of-12">
+                    <lightning-output-field field-name="AnnualRevenue"></lightning-output-field>
+                </div>
+            </div>
+        </lightning-record-view-form>
+    </lightning-card>
+</template>
+
+<!-- We can use object and recordId dynamically also through @api @objectApiName -->
