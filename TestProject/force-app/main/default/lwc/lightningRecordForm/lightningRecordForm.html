@@ -1,0 +1,34 @@
+<template>
+    <!-- Create Record -->
+    <lightning-card title="Create Record using lightning-record-form">
+        <lightning-record-form object-api-name={objectName} fields={fieldList} onsuccess={successHandler}>
+        </lightning-record-form>
+    </lightning-card>
+    <!-- displaying the record in view mode -->
+    <lightning-card title="Display Record using lightning-record-form">
+        <lightning-record-form record-id="0011m00000lwUUSAA2" object-api-name={objectName} fields={fieldList}>
+        </lightning-record-form>
+    </lightning-card>
+    <!-- displaying the record in read-only mode -->
+    <lightning-card title="Display Record using lightning-record-form (Read Only)">
+        <lightning-record-form record-id="0011m00000lwUUSAA2" object-api-name={objectName} fields={fieldList} mode="readonly">
+        </lightning-record-form>
+    </lightning-card>
+    <!-- Editing Record -->
+    <lightning-card title="Edit Record using lightning-record-form">
+        <lightning-record-form record-id="0011m00000lwUUSAA2" object-api-name={objectName} fields={fieldList} mode="edit" columns="2">
+        </lightning-record-form>
+    </lightning-card>
+    <!-- Editing Record using layout-->
+    <!-- When we use layout we donot need to use fields -->
+    <!-- COMPACT LAYOUT -->
+    <lightning-card title="Edit Record using layout with lightning-record-form">
+        <lightning-record-form record-id="0011m00000lwUUSAA2" object-api-name={objectName} mode="edit" columns="2" layout-type="Compact">
+        </lightning-record-form>
+    </lightning-card>
+    <!-- FULL LAYOUT -->
+    <lightning-card title="Edit Record using layout with lightning-record-form">
+        <lightning-record-form record-id="0011m00000lwUUSAA2" object-api-name={objectName} mode="edit" columns="2" layout-type="Full">
+        </lightning-record-form>
+    </lightning-card>
+</template>
