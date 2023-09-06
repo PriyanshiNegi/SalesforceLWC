@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Custom validation lightning-record-edit-form">
+        <!-- onsubmit = for custom validation
+        onsuccess = for toast notifications
+        onerror = to handle server errors -->
+        <lightning-record-edit-form object-api-name={objectName} onsubmit={handleSubmit} onsuccess={successHandler} onerror={handleError}>
+            <!-- for input -->
+            <lightning-input label="Name" value={inputValue} onkeyup={handleChange} class="slds-m-bottom_x-small"></lightning-input>
+            <!-- for submission -->
+            <lightning-button class="slds-m-top_small" type="submit" label="Create Account"></lightning-button>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>
