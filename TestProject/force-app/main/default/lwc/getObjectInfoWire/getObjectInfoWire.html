@@ -1,0 +1,38 @@
+<template>
+    <!-- getobjectInfo Adapter-->
+    <lightning-card  variant="Narrow"  title="Account Details using getObjectInfo Wire" class="slds-p-around_small">
+        <!-- to check if we do actually have a data or not -->
+            <template if:true={objectInfo.data}>
+                <div class="slds-p-around_medium">
+                    <div>Default Record Type Id : {objectInfo.data.defaultRecordTypeId}</div>
+                    <div>Object API Name : {objectInfo.data.apiName}</div>
+                </div>
+            </template>
+    </lightning-card>   
+    
+    <!-- getobjectInfos Adapter -->
+    <lightning-card  variant="Narrow"  title="Details using getObjectInfos Wire" class="slds-p-around_small">
+            <div class="slds-p-around_medium">
+                <!-- results is present in the data as returned by the wire here, and it is a array can check through console -->
+                <template if:true={objectInformation}>
+                    <template for:each={objectInformation.results} for:item="obj">
+                    <div key={obj.result.ApiName}> 
+                        <div> Object API Name : {obj.result.apiName}</div>
+                        <div> Default Record Type Id : {obj.result.defaultRecordTypeId}</div>
+                    </div>
+                    </template>
+                </template>
+            </div>
+    </lightning-card>  
+    
+    <!-- getpicklistValues Adapter -->
+    <lightning-card  variant="Narrow"  title="Details using getpicklistValues Wire" class="slds-p-around_small">
+                <div class="slds-p-around_medium">
+                    <lightning-combobox name="Industry" label="Industry" value={selectedIndustry} placeholder="Select Industry" options={industryOptions} onchange={handleChange}></lightning-combobox>
+                    <p>Industry : {selectedIndustry}</p>
+
+                    <lightning-combobox name="Type" label="Type" value={selectedType} placeholder="Select Type" options={typeOptions} onchange={handleTypeChange}></lightning-combobox>
+                    <p>Type : {selectedType}</p>
+                </div>
+    </lightning-card>
+</template>
