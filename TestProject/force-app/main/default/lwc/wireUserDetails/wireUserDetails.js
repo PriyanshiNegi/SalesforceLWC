@@ -6,6 +6,10 @@ import Id from '@salesforce/user/Id'
 // importing adapter
 import {getRecord} from 'lightning/uiRecordApi'
 
+// if hard coded values are used then any change at the SF end would cause the code to break thus we use references
+import NAME_FIELD from '@salesforce/schema/User.Name'
+import EMAIL_FIELD from '@salesforce/schema/User.Email'
+const fields = [NAME_FIELD,EMAIL_FIELD]
 export default class WireUserDetails extends LightningElement {
     userId = Id
     userDetails
@@ -18,8 +22,11 @@ export default class WireUserDetails extends LightningElement {
     // propertyorFunction = to catch the data
 
     // {adapterConfig} = important parameters/configurations that the adapter is expecting
+    // @wire(getRecord,{recordId : "0051m000005sYcGAAU",fields :['User.Name','User.Email']})
 
-    @wire(getRecord,{recordId : "0051m000005sYcGAAU",fields :['User.Name','User.Email']})
+
+    @wire(getRecord,{recordId : "0051m000005sYcGAAU",fields :fields})
+
     // this function will give the response from adapter
     userDetailHandler(response){
 
@@ -39,7 +46,7 @@ export default class WireUserDetails extends LightningElement {
     }
 
     // wire property approach
-    @wire(getRecord,{recordId : "0051m000005sYcGAAU",fields :['User.Name','User.Email']})
+    @wire(getRecord,{recordId : "0051m000005sYcGAAU",fields})//if key and value are same no need for fields : fields above also same can be done
     userDetailProperty
     
 }
