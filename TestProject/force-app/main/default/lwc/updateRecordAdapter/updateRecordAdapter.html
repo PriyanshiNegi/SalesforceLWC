@@ -1,0 +1,9 @@
+<template>
+    <!-- updating record -->
+    <div class="slds-p-around_medium">
+        <!-- Using datatable to show the contact records -->
+        <!-- draft-values = updated values of data that has not been saved yet -->
+        <lightning-datatable key-field="Id" data={contacts} columns={columns} draft-values={draftValues} onsave={handleSave} hide-checkbox-column>
+        </lightning-datatable>
+    </div>
+</template>
