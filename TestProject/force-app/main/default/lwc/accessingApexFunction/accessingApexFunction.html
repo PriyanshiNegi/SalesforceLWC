@@ -1,0 +1,66 @@
+<template>
+
+    <!-- Wire Approach -->
+    <!-- without parameters -->
+    <lightning-card title="Apex Wire To Property Demo">
+        <div class="slds-p-around_medium">
+            <template if:true={accountList.data}>
+                <template for:each={accountList.data} for:item="account">
+                    <div class="slds-box slds-box_xx-small" key={account.Id}>
+                        <p><strong>Name : </strong> {account.Name}</p>
+                        <p><strong>Type : </strong> {account.Type}</p>
+                        <p><strong>Industry : </strong> {account.Industry}</p>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+    <!-- with parameters -->
+    <lightning-card title="Apex Wire To Function Demo">
+        <div class="slds-p-around_medium">
+            <!-- for showing options to choose from to select Type -->
+            <lightning-combobox name="type" lable="Choose your Type" value={selectedType} options={typeOptions} onchange={typeHandler}></lightning-combobox>
+            <template if:true={filteredAccounts.data}>
+                <template for:each={filteredAccounts.data} for:item="account">
+                    <div class="slds-box slds-box_xx-small" key={account.Id}>
+                        <p><strong>Name : </strong> {account.Name}</p>
+                        <p><strong>Type : </strong> {account.Type}</p>
+                        <p><strong>Industry : </strong> {account.Industry}</p>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+
+    <!-- Imperative Approach -->
+    <!-- without parameters -->
+    <lightning-card title="Apex Imperative Call Demo">
+        <div class="slds-p-around_medium">
+            <lightning-button variant="brand" label="Fetch Account Data" onclick={clickHandler}></lightning-button>
+        </div>
+        <div class="slds-p-around_medium">
+            <template if:true={accounts}>
+                <template for:each={accounts} for:item="account">
+                    <div class="slds-box slds-box_xx-small" key={account.Id}>
+                        <p><strong>Name : </strong> {account.Name}</p>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+    <!-- with parameters -->
+    <lightning-card title="Apex Imperative Call Demo">
+        <div class="slds-p-around_medium">
+            <lightning-input type="search" label="Search Account" onchange={searchHandler} value={inputValue}></lightning-input>
+        </div>
+        <div class="slds-p-around_medium">
+            <template if:true={searched}>
+                <template for:each={searched} for:item="search">
+                    <div class="slds-box slds-box_xx-small" key={search.Id}>
+                        <p><strong>Name : </strong> {search.Name}</p>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>
